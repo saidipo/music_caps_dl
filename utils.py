@@ -133,4 +133,4 @@ def dl_audioset(save_path, args):
 
     start_time = (meta.start_s * 1000).astype(int)
     end_time = (meta.end_s * 1000).astype(int)
-    download_ps(yids, start_time, end_time, args.save_path, target, num_processes=mp.cpu_count()-10)
+    download_ps(yids, start_time, end_time, args.save_path, target, num_processes = max(1, mp.cpu_count() // 2))
